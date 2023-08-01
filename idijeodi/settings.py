@@ -84,6 +84,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'idijeodi.wsgi.application'
 
+# REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASS': {
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    },
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '5/hour', # sec, min, hour, day
+        'user': '20/hour',
+    },
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    # ]
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

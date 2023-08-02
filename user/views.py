@@ -30,12 +30,12 @@ class Login(APIView):
             password = form.cleaned_data['password']
             user = authenticate(username=email, password=password)
             if user:
-                login(request, user)
+                # login(request, user)
                 return Response({'email':email}, status=status.HTTP_202_ACCEPTED)
         return Response({'message':'email 또는 password를 확인해주세요'}, status=status.HTTP_400_BAD_REQUEST)
     
 
 class Logout(APIView):
     def get(self, request):
-        logout(request)
+        # logout(request)
         return Response({'meesage':'logout'}, status=status.HTTP_200_OK)
